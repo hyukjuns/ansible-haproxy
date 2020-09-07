@@ -125,10 +125,10 @@ b. 롤을 사용해서 작성하면 100점부터 시작하여 감점
 ## Answer
 - haproxy role
   - [haproxy tasks](./roles/haproxy/tasks/main.yml)
-  - [haproxy template](./roles/haproxy/templates/haporxy.cfg.j2)
+  - [haproxy template](./roles/haproxy/templates/haproxy.cfg.j2)
 - web role
   - [web tasks)](./roles/web/tasks/)
-  - [web template](./rolse/web/templates/index.html)
+  - [web template](./roles/web/templates/index.html)
 
 ### result
 ```yaml
