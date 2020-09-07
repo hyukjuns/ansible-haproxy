@@ -1,0 +1,7 @@
+---
+- name: Configuration Webservers & HA proxy by role
+  hosts: all
+  become: yes
+  roles:
+    - role: web
+    - role: haproxy

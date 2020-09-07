@@ -1,0 +1,11 @@
+---
+# tasks file for roles/web
+- block:
+    - name: Install httpd Service
+      include_tasks: setup-centos.yml
+      when: ansible_distribution == "CentOS"
+      
+    - name: Install apache2 Service
+      include_tasks: setup-ubuntu.yml
+      when: ansible_distribution == "Ubuntu"
+  when: ansible_facts.hostname != "host1"

@@ -1,0 +1,19 @@
+- name: Install http Service
+  yum:
+    name: httpd
+    state: latest
+- name: Start http Service
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+- name: Copy index.html
+  template:
+    src: index.html
+    dest: /var/www/html/
+- name: Open FW
+  firewalld:
+    service: http
+    permanent: yes
+    state: enabled
+    immediate: yes
