@@ -1,4 +1,4 @@
-# Ansible- Deploy different web service and HAProxy
+# Ansible - Deploy different web service and HAProxy
 ### 목적
 centos와 ubuntu vm에 web 서비스를 배포하고 haproxy노드에 haproxy서비스를 배포 하였다
 ### Abstract 
