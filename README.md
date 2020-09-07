@@ -110,7 +110,7 @@ $ ansible all -a id -b
 ```
 ---
 
-## Exam
+## Architecture
 ![images/Untitled.png](images/Untitled.png)
 
 ```bash
@@ -125,7 +125,7 @@ index.html 에는 각 서버의 호스트네임이 들어가야합니다. 예를
 합니다.
 6. role을 사용해서 작성.
 ```
-## Answer
+## Result - codes
 - haproxy role
   - [haproxy tasks](./roles/haproxy/tasks/main.yml)
   - [haproxy template](./roles/haproxy/templates/haproxy.cfg.j2)
@@ -133,7 +133,7 @@ index.html 에는 각 서버의 호스트네임이 들어가야합니다. 예를
   - [web tasks](./roles/web/tasks/)
   - [web template](./roles/web/templates/index.html)
 
-### result
+### Result - tree .
 ```yaml
 😕  exam git:(master) ✗ tree ~/Documents/Ansible/exam/
 /home/student/Documents/Ansible/exam/
