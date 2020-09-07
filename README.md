@@ -1,6 +1,7 @@
-# Ansible-Exam
+# Ansible- Deploy diffrent web service and HAProxy
+목적: centos와 ubuntu vm에 web 서비스를 배포하고 haproxy서비스를 배포, os를 분류하기 위해 facts를 사용하였고, jinja template과 매직변수인 hastvars를 사용하여 haproxy 설정파일의 백앤드서버의 ip를 동적으로 할당하였고, web서비스의 index.html의 내용또한 jinja template과facts를 사용해 편집하였다.
 
-## Setting before exam
+## Setting
 
 ### Nodes
 - PC OS: Ubuntu(Controller)
@@ -113,21 +114,19 @@ $ ansible all -a id -b
 2. haproxy의 설정 파일은 http://cccr3guro.iptime.org/ansible/EXAM/haproxy.cfg.j2
 에서 다운로드 받아서 template 모듈로 배포하세요.
 3. 다운로드 받은 템플릿 파일의 ????은 적당한 변수로 변경해야 합니다.
-4. host2는 CentOS host3은 Ubuntu입니다. 아파치 서비스를 각각 설치하고
+4. host2는 CentOS host3Ubuntu입니다. 아파치 서비스를 각각 설치하고
 index.html 에는 각 서버의 호스트네임이 들어가야합니다. 예를 들어 curl host2 를
 하면 host2가 출력되어야 합니다.
 5. 최종적으로 student$ curl host1 을 실행하면 host2와 host3이 교대로 출력되어야
 합니다.
-6. 정상 동작 기준으로
-a. 플레이북만 사용해서 작성하면 50점부터 시작하여 감점
-b. 롤을 사용해서 작성하면 100점부터 시작하여 감점
+6. role을 사용해서 작성.
 ```
 ## Answer
 - haproxy role
   - [haproxy tasks](./roles/haproxy/tasks/main.yml)
   - [haproxy template](./roles/haproxy/templates/haproxy.cfg.j2)
 - web role
-  - [web tasks)](./roles/web/tasks/)
+  - [web tasks](./roles/web/tasks/)
   - [web template](./roles/web/templates/index.html)
 
 ### result
