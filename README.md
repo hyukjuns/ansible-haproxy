@@ -20,11 +20,11 @@ jinja template과 매직변수인 hostvars를 사용하여 haproxy 설정파일�
 ```yaml
 - inventory.ini
 
-[web]
+[centos]
 host1 ansible_user=user ansible_password=user ansible_become_password=user
 host2 ansible_user=user ansible_password=user ansible_become_password=user
 
-[db]
+[ubuntu]
 host3 ansible_user=devops ansible_password=dkagh1. ansible_become_password=dkagh1.
 
 - ansible.cfg
@@ -56,11 +56,11 @@ host_key_checking=false
 ```yaml
 - inventory.ini
 
-[web]
+[centos]
 host1 ansible_user=user ansible_password=user ansible_become_password=user
 host2 ansible_user=user ansible_password=user ansible_become_password=user
 
-[db]
+[ubuntu]
 host3 ansible_user=devops ansible_password=dkagh1. ansible_become_password=dkagh1.
 
 - ansible.cfg
@@ -73,7 +73,7 @@ cp_cent.yml
 
 ---
 - name: cp nopasswd file for no sudo passwd
-  hosts: web
+  hosts: centos
   become: yes
   tasks:
     - copy:
@@ -87,7 +87,7 @@ For Ubuntu
 cp_ubuntu.yml
 ---
 - name: cp nopasswd file for no sudo passwd
-  hosts: db
+  hosts: ubuntu
   become: yes
   tasks:
     - copy:
@@ -99,11 +99,11 @@ devops ALL=(ALL) NOPASSWD: ALL
 
 완료 후 확인
 - inventory.ini
-[web]
+[centos]
 host1 ansible_user=user
 host2 ansible_user=user
 
-[db]
+[ubuntu]
 host3 ansible_user=devops
 
 $ ansible all -a id -b
@@ -111,14 +111,14 @@ $ ansible all -a id -b
 ---
 
 ## Architecture
-![images/Untitled.png](images/Untitled.png)
+![images/example.png](images/example.png)
 
 ```bash
 1. host1에 haproxy 서비스를 설치하세요.
 2. haproxy의 설정 파일은 http://cccr3guro.iptime.org/ansible/EXAM/haproxy.cfg.j2
 에서 다운로드 받아서 template 모듈로 배포하세요.
 3. 다운로드 받은 템플릿 파일의 ????은 적당한 변수로 변경해야 합니다.
-4. host2는 CentOS host3Ubuntu입니다. 아파치 서비스를 각각 설치하고
+4. host2는 CentOS host3 Ubuntu입니다. 아파치 서비스를 각각 설치하고
 index.html 에는 각 서버의 호스트네임이 들어가야합니다. 예를 들어 curl host2 를
 하면 host2가 출력되어야 합니다.
 5. 최종적으로 student$ curl host1 을 실행하면 host2와 host3이 교대로 출력되어야
@@ -181,5 +181,5 @@ index.html 에는 각 서버의 호스트네임이 들어가야합니다. 예를
 │           └── main.yml
 └── webservers_haproxy_role.yml
 ```
-![images/Untitled%201.png](images/Untitled%201.png)
+![images/result.png](images/result.png)
 host1에서 haproxy 동작 확인
