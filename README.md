@@ -3,7 +3,7 @@
 centos와 ubuntu vm에 web 서비스를 배포하고 haproxy노드에 haproxy서비스를 배포 하였다
 ### Abstract 
 roles을 사용해 tasks를 분류하였으며, os를 분류하기 위해 facts를 사용함.<br>
-jinja template과 매직변수인 hastvars를 사용하여 haproxy 설정파일의 백앤드서버의 ip를 동적으로 할당하였고, web서비스의 index.html의 내용또한 jinja template과 facts를 사용해 편집하였다.
+jinja template과 매직변수인 hostvars를 사용하여 haproxy 설정파일의 백앤드서버의 ip를 동적으로 할당하였고, web서비스의 index.html의 내용또한 jinja template과 facts를 사용해 편집하였다.
 
 ## Setting
 
